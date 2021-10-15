@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  node-app:
+    build: . # path to the dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - PORT=3000
+
+  mongodb:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=sangharsh
+      - MONGO_INITDB_ROOT_PASSWORD=sangharsh
+    volumes:
+      - mongo-db:/data/db
+
+volumes:
+  mongo-db:
